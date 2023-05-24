@@ -12,11 +12,12 @@ public class Blog_pessoal {
 
     public static ArrayList<Integer> ids = new ArrayList<>();
     public static ArrayList<String> nomes = new ArrayList<>();
+    public static ArrayList<String> temas = new ArrayList<>();
     public static ArrayList<String> titulos = new ArrayList<>();
     public static ArrayList<String> conteudos = new ArrayList<>();
     public static ArrayList<Date> datas = new ArrayList<>();
 
-    public static int create_post (Integer id, String nome, String titulo, String conteudo, Date data){
+    public static int create_post (Integer id, String nome, String tema, String titulo, String conteudo, Date data){
 
         int postagem_existe = read_post(id);
 
@@ -48,14 +49,27 @@ public class Blog_pessoal {
     }
     public static void main(String[] args) {
 
-        int id = 1;
+        int id = 1, operacao;
 
         Scanner scan = new Scanner(System.in);
 
         while(true){
             System.out.println("Selecione o Número Que Representa a Operação Desejada:");
-            /* criar os inputs do scanner aqui */
+            System.out.println("1 - Criar Postagem");
+            System.out.println("2 - Buscar Postagem");
+            System.out.println("3 - Atualizar Postagem");
+            System.out.println("4 - Deletar Postagem");
+            System.out.println("5 - Listar Todas as Postagens");
+            System.out.println("0 - Sair");
+            operacao = scan.nextInt();
+
+            if(operacao == 1){
+
+            }
         }
+
+        
+
         scan.close();
     }
 }
