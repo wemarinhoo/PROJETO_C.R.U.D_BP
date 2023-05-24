@@ -1,0 +1,34 @@
+Códigos
+ * 0 = OK
+ * 1 = Erro
+ * 2 = Id já utilizado por uma postagem
+ 
+ ----------------------------------------------------------------
+Blog pessoal
+
+  Alteração
+no lugar de nome: 
+- criar um id
+titulo ser duas palavras no maximo, usando _ no lugar do espaço
+assunto ser uma frase usando _ no lugar de espaços.
+
+buscar por
+import java.time
+import java.date
+
+*funções
+filtrar postagens por período
+return array de indices
+na main -> for que vai percorrer o vetor e mostrar todas as publicações dos indices
+
+listAll() -> for por todo o arrayList printando todos os posts
+
+checagem do único vai ser pelo titulo
+
+frescura beleza
+
+id: 1
+titulo: titulo1
+assunto:assunto_qualquer
+data: 2023-03-01
+--------------------------------------
