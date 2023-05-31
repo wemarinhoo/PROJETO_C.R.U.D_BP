@@ -96,10 +96,9 @@ import java.util.Scanner;
               System.out.println("Postagem Adicionada");
             } else{
               System.out.println("Postagem Não Adicionada");
-            
             }
 
-            else if(operacao == 2){
+          } else if(operacao == 2){
 
             }
 
@@ -130,9 +129,11 @@ import java.util.Scanner;
               System.out.println("Operação Incorreta");
             }
           }
-          }
+
+          scan.close();
+          
+        }
     
-         scan.close();
+         
         
       }
-}
