@@ -69,7 +69,7 @@ import java.util.Scanner;
           operacao = scan.nextInt();
 
           if(operacao == 1){
-            System.out.println("ID da Postagem:" + id++);
+            System.out.println("ID: " + id++);
 
             System.out.println("Digite o Nome do Autor da Postagem");
             nome = scan.next();
