@@ -7,7 +7,7 @@ import java.util.Scanner;
 /* Códigos
  * 0 = OK
  * 1 = Erro
- * 2 = Id já utilizado por uma postagem */
+ * 2 = Título já utilizado por uma postagem */
 
  public class Blog_pessoal {
 
@@ -20,9 +20,9 @@ import java.util.Scanner;
 
   public static int create_post (Integer id, String nome, String data, String categoria, String titulo, String conteudo){
 
-      int postagem_existe = read_post(id);
+      int titulo_existe = read_post(id);
 
-      if(postagem_existe >= 0){
+      if(titulo_existe >= 0){
               return 2;
       }
 
@@ -93,9 +93,9 @@ import java.util.Scanner;
             status = create_post(id, nome, data, categoria, titulo, conteudo);
 
             if(status == 0){
-              System.out.println("Postagem Adicionada");
+              System.out.println("Postagem Adicionada!!");
             } else{
-              System.out.println("Postagem Não Adicionada");
+              System.out.println("Erro ao Adicionar Postagem!!");
             }
 
           } else if(operacao == 2){
@@ -113,12 +113,12 @@ import java.util.Scanner;
             else if(operacao == 5){
 
               for(indice = 0; indice < ids.size(); indice++){
-                System.out.println(ids.get(indice));
-                System.out.println(nomes.get(indice));
-                System.out.println(datas.get(indice));
-                System.out.println(categorias.get(indice));
-                System.out.println(titulos.get(indice));
-                System.out.println(conteudos.get(indice));
+                System.out.println("ID: " + ids.get(indice));
+                System.out.println("Nome do Autor: " + nomes.get(indice));
+                System.out.println("Data de Publicação: " + datas.get(indice));
+                System.out.println("Categoria: " + categorias.get(indice));
+                System.out.println("Título: " + titulos.get(indice));
+                System.out.println("Conteúdo: " + conteudos.get(indice));
                 System.out.println("-----------------------------------");
               }
             }
@@ -133,7 +133,4 @@ import java.util.Scanner;
           scan.close();
           
         }
-    
-         
-        
       }
