@@ -20,7 +20,7 @@ import java.util.Scanner;
 
   public static int create_post (Integer id, String nome, String data, String categoria, String titulo, String conteudo){
 
-      int titulo_existe = read_post(id);
+      int titulo_existe = read_post(titulo);
 
       if(titulo_existe >= 0){
               return 2;
@@ -37,9 +37,14 @@ import java.util.Scanner;
 
   }
 
-  public static int read_post (Integer id, String categoria, String data){
-      
+  public static int read_post (Integer id, String data, String categoria, String titulo){
+    
+    String titulo_busca;
+    int indice;
 
+    for (indice = 0; indice < titulos.size(); indice++){
+      titulo_busca = titulos.get(indice);
+    }
   }
 
   public static int update_post (){
@@ -99,7 +104,18 @@ import java.util.Scanner;
             }
 
           } else if(operacao == 2){
+            
+            System.out.println("Escolha o Método de Busca Desejado:");
+            System.out.println("1 - Pesquisar Por ID da Postagem");
+            operacao = scan.nextInt();
+            System.out.println("2 - Buscar Por Categoria da Postagem");
+            operacao = scan.nextInt();
+            System.out.println("3 - Filtrar Postagens Por Período(Datas de Publicação)");
+            operacao = scan.nextInt();
 
+            /* if(operacao == 1){
+              System.out.println("Digite o ID da Postagem");
+            } */
             }
 
             else if(operacao == 3){
