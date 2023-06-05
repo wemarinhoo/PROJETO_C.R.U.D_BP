@@ -3,6 +3,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.ParseException;
 
 /* Códigos
  * 0 = OK
@@ -85,8 +86,12 @@ import java.util.Scanner;
 
             // formatar data do tipo string para date
             DateFormat formato_data = new SimpleDateFormat("dd/MM/yyyy");
+            try {
             Date date = formato_data.parse(data);
-            System.out.println(formato_data.format(data));
+            System.out.println(formato_data.format(date));
+            } catch (ParseException e) {
+            e.printStackTrace();
+            }
 
             System.out.println("Digite a Categoria da Postagem(ex:Tecnologia, Saúde...)");
             categoria = scan.next();
