@@ -10,7 +10,7 @@ import java.text.ParseException;
  * 1 = Erro
  * 2 = Título já utilizado por uma postagem */
 
- public class Blog_pessoal {
+public class Blog_pessoal {
 
   public static ArrayList<Integer> ids = new ArrayList<>();
   public static ArrayList<String> nomes = new ArrayList<>();
@@ -19,139 +19,195 @@ import java.text.ParseException;
   public static ArrayList<String> titulos = new ArrayList<>();
   public static ArrayList<String> conteudos = new ArrayList<>();
 
-  public static int create_post (Integer id, String nome, String data, String categoria, String titulo, String conteudo){
+  public static int create_post(Integer id, String nome, String data, String categoria, String titulo,
+      String conteudo) {
 
-      int titulo_existe = read_post(titulo);
+    int titulo_existe = read_post(titulo);
 
-      if(titulo_existe >= 0){
-              return 2;
-      }
+    if (titulo_existe >= 0) {
+      return 2;
+    }
 
-      ids.add(id);
-      nomes.add(nome);
-      datas.add(data);
-      categorias.add(categoria);
-      titulos.add(titulo);
-      conteudos.add(conteudo);
+    ids.add(id);
+    nomes.add(nome);
+    datas.add(data);
+    categorias.add(categoria);
+    titulos.add(titulo);
+    conteudos.add(conteudo);
 
-      return 0;
+    return 0;
 
   }
 
-  public static int read_post (Integer id, String data, String categoria, String titulo){
-    
+  public static int read_post(Integer id, String data, String categoria, String titulo) {
+
     String titulo_busca;
     int indice;
 
-    for (indice = 0; indice < titulos.size(); indice++){
+    for (indice = 0; indice < titulos.size(); indice++) {
       titulo_busca = titulos.get(indice);
     }
   }
 
-  public static int update_post (){
+  public static int update_post(Integer id, String nome, String data, String categoria, String titulo,
+      String conteudo) {
+
+    int indice = read_post(id);
+
+    if (indice < 0) {
+      return -1;
+    }
+
+    nomes.set(indice, nome);
+    datas.set(indice, data);
+    categorias.set(indice, categoria);
+    titulos.set(indice, titulo);
+    conteudos.set(indice, conteudo);
+
+    return 0;
+  }
+
+  public static int delete_post() {
 
   }
 
-  public static int delete_post (){
-
-  }
   public static void main(String[] args) {
 
-    String nome, categoria, titulo, conteudo, data; 
-    int id = 0, operacao, status, indice;
+    String nome, categoria, titulo, conteudo, data;
+    int id = 0, operacao, operacao_update, status, indice;
 
-      Scanner scan = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
-      while(true){
+    while (true) {
 
-          System.out.println("Selecione o Número Que Representa a Operação Desejada:");
-          System.out.println("1 - Criar Postagem");
-          System.out.println("2 - Buscar Postagem");
-          System.out.println("3 - Atualizar Postagem");
-          System.out.println("4 - Deletar Postagem");
-          System.out.println("5 - Exibir Todas as Postagens Publicadas");
-          System.out.println("0 - Sair");
-          System.out.println("-----------------------------------");
-          operacao = scan.nextInt();
+      System.out.println("Selecione o Número Que Representa a Operação Desejada:");
+      System.out.println("1 - Criar Postagem");
+      System.out.println("2 - Buscar Postagem");
+      System.out.println("3 - Atualizar Postagem");
+      System.out.println("4 - Deletar Postagem");
+      System.out.println("5 - Exibir Todas as Postagens Publicadas");
+      System.out.println("0 - Sair");
+      System.out.println("-----------------------------------");
+      operacao = scan.nextInt();
 
-          if(operacao == 1){
-            System.out.println("ID: " + id++);
+      if (operacao == 1) {
+        System.out.println("ID: " + id++);
 
-            System.out.println("Digite o Nome do Autor da Postagem");
-            nome = scan.next();
-            
-            // recebendo a data no tipo string
-            System.out.println("Digite a Data de Publicação da Postagem(DD/MM/AAAA)");
-            data = scan.next();
+        System.out.println("Digite o Nome do Autor da Postagem");
+        nome = scan.next();
 
-            // formatar data do tipo string para date
-            DateFormat formato_data = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-            Date date = formato_data.parse(data);
-            System.out.println(formato_data.format(date));
-            } catch (ParseException e) {
-            e.printStackTrace();
-            }
+        // recebendo a data no tipo string
+        System.out.println("Digite a Data de Publicação da Postagem(DD/MM/AAAA)");
+        data = scan.next();
 
-            System.out.println("Digite a Categoria da Postagem(ex:Tecnologia, Saúde...)");
-            categoria = scan.next();
-            System.out.println("Digite o Título da Postagem");
-            titulo = scan.next();
-            System.out.println("Digite o Conteúdo da Postagem");
-            conteudo = scan.next();
+        // formatar data do tipo string para date
+        DateFormat formato_data = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+          Date date = formato_data.parse(data);
+          System.out.println(formato_data.format(date));
+        } catch (ParseException e) {
+          e.printStackTrace();
+        }
 
-            status = create_post(id, nome, data, categoria, titulo, conteudo);
+        System.out.println("Digite a Categoria da Postagem(ex:Tecnologia, Saúde...)");
+        categoria = scan.nextLine();
+        System.out.println("Digite o Título da Postagem");
+        titulo = scan.next();
+        System.out.println("Digite o Conteúdo da Postagem");
+        conteudo = scan.nextLine();
+        scan.nextLine();
+        status = create_post(id, nome, data, categoria, titulo, conteudo);
 
-            if(status == 0){
-              System.out.println("Postagem Adicionada!!");
-            } else{
-              System.out.println("Erro ao Adicionar Postagem!!");
-            }
+        if (status == 0) {
+          System.out.println("Postagem Adicionada!!");
+        } else {
+          System.out.println("Erro ao Adicionar Postagem!!");
+        }
 
-          } else if(operacao == 2){
-            
-            System.out.println("Escolha o Método de Busca Desejado:");
-            System.out.println("1 - Pesquisar Por ID da Postagem");
-            operacao = scan.nextInt();
-            System.out.println("2 - Buscar Por Categoria da Postagem");
-            operacao = scan.nextInt();
-            System.out.println("3 - Filtrar Postagens Por Período(Datas de Publicação)");
-            operacao = scan.nextInt();
+      } else if (operacao == 2) {
 
-            /* if(operacao == 1){
-              System.out.println("Digite o ID da Postagem");
-            } */
-            }
+        System.out.println("Escolha o Método de Busca Desejado:");
+        System.out.println("1 - Pesquisar Por ID da Postagem");
+        operacao = scan.nextInt();
+        System.out.println("2 - Buscar Por Categoria da Postagem");
+        operacao = scan.nextInt();
+        System.out.println("3 - Filtrar Postagens Por Período(Datas de Publicação)");
+        operacao = scan.nextInt();
 
-            else if(operacao == 3){
+        /*
+         * if(operacao == 1){
+         * System.out.println("Digite o ID da Postagem");
+         * }
+         */
+      }
 
-            }
+      else if (operacao == 3) {
 
-            else if(operacao == 4){
+        System.out.println("Digite o ID da Postagem a Ser Atualizada:");
+        id = scan.nextInt();
+        System.out.println("--------------------------------");
 
-            }
+        System.out.println("Escolha Qual o Tópico a Ser Atualizado");
+        System.out.println("1 - Atualizar Nome do Autor");
+        System.out.println("2 - Atualizar Data de Publicação da Postagem");
+        System.out.println("3 - Atualizar Categoria da Postagem");
+        System.out.println("4 - Atualizar Título da Postagem");
+        System.out.println("5 - Atualizar Conteúdo da Postagem");
+        operacao = scan.nextInt();
 
-            else if(operacao == 5){
+        if (operacao == 1) {
+          System.out.println("Digite o Novo Nome do Autor");
+          nome = scan.nextLine();
+        } else if (operacao == 2) {
+          System.out.println("Digite a Nova Data de Publicação da Postagem");
+          data = scan.next();
+        } else if (operacao == 3) {
+          System.out.println("Digite a Nova Categoria da Postagem");
+          categoria = scan.next();
+        } else if (operacao == 4) {
+          System.out.println("Digite o Novo Título da Postagem");
+          categoria = scan.nextLine();
+        } else if (operacao == 5) {
+          System.out.println("Atualizar Conteúdo da Postagem");
+          conteudo = scan.nextLine();
+        } else {
+          System.out.println("Escolha Incorreta");
+        }
 
-              for(indice = 0; indice < ids.size(); indice++){
-                System.out.println("ID: " + ids.get(indice));
-                System.out.println("Nome do Autor: " + nomes.get(indice));
-                System.out.println("Data de Publicação: " + datas.get(indice));
-                System.out.println("Categoria: " + categorias.get(indice));
-                System.out.println("Título: " + titulos.get(indice));
-                System.out.println("Conteúdo: " + conteudos.get(indice));
-                System.out.println("-----------------------------------");
-              }
-            }
+        status = update_post(id, nome = "", data = "", categoria = "", titulo = "", conteudo = "");
 
-            else if(operacao == 0){
-              break;
-            } else {
-              System.out.println("Operação Incorreta");
-            }
-          }
-
-          scan.close();
-          
+        if (status == 0) {
+          System.out.println("Postagem Atualizada!!");
+        } else {
+          System.out.println("Erro ao Atualizar Postagem!!");
         }
       }
+
+      else if (operacao == 4) {
+
+      }
+
+      else if (operacao == 5) {
+
+        for (indice = 0; indice < ids.size(); indice++) {
+          System.out.println("ID: " + ids.get(indice));
+          System.out.println("Nome do Autor: " + nomes.get(indice));
+          System.out.println("Data de Publicação: " + datas.get(indice));
+          System.out.println("Categoria: " + categorias.get(indice));
+          System.out.println("Título: " + titulos.get(indice));
+          System.out.println("Conteúdo: " + conteudos.get(indice));
+          System.out.println("-----------------------------------");
+        }
+      }
+
+      else if (operacao == 0) {
+        break;
+      } else {
+        System.out.println("Operação Incorreta");
+      }
+    }
+
+    scan.close();
+
+  }
+}
