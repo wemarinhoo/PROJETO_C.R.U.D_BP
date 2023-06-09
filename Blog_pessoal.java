@@ -47,6 +47,7 @@ public class Blog_pessoal {
     for (indice = 0; indice < titulos.size(); indice++) {
       titulo_busca = titulos.get(indice);
     }
+     return 0;
   }
 
   public static int update_post(Integer id, String nome, String data, String categoria, String titulo,
