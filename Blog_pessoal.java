@@ -23,9 +23,8 @@ public class Blog_pessoal {
       String conteudo) {
 
     int titulo_existe = read_post(titulo);
-
     if (titulo_existe >= 0) {
-      return 2;
+      return -2;
     }
 
     ids.add(id);
@@ -39,7 +38,7 @@ public class Blog_pessoal {
 
   }
 
-  public static int read_post(Integer id, String data, String categoria, String titulo) {
+  public static int read_post(String titulo) {
 
     String titulo_busca;
     int indice;
@@ -47,17 +46,21 @@ public class Blog_pessoal {
     for (indice = 0; indice < titulos.size(); indice++) {
       titulo_busca = titulos.get(indice);
 
-      if(titulo_busca.equals(titulo)){
+      if (titulo_busca.equals(titulo)) {
         return indice;
       }
     }
-     return 0;
+
+    if (indice == titulos.size()) {
+      return -1;
+    }
+    return 1;
   }
 
   public static int update_post(Integer id, String nome, String data, String categoria, String titulo,
       String conteudo) {
 
-    int indice = read_post(id);
+    int indice = read_post(titulo);
 
     if (indice < 0) {
       return -1;
@@ -72,14 +75,25 @@ public class Blog_pessoal {
     return 0;
   }
 
-  public static int delete_post() {
-
+  public static int delete_post(Integer id) {
+    int indice = ids.indexOf(id);
+    if (indice >= 0) {
+      ids.remove(indice);
+      nomes.remove(indice);
+      datas.remove(indice);
+      categorias.remove(indice);
+      titulos.remove(indice);
+      conteudos.remove(indice);
+      return 0;
+    } else {
+      return -1;
+    }
   }
 
   public static void main(String[] args) {
 
     String nome, categoria, titulo, conteudo, data;
-    int id = 0, operacao, operacao_update, status, indice;
+    int id = -1, operacao, operacao_update, status, indice;
 
     Scanner scan = new Scanner(System.in);
 
@@ -96,7 +110,8 @@ public class Blog_pessoal {
       operacao = scan.nextInt();
 
       if (operacao == 1) {
-        System.out.println("ID: " + id++);
+        id++;
+        System.out.println("ID: " + id);
 
         System.out.print("Digite o Nome do Autor da Postagem: ");
         nome = scan.next();
@@ -121,19 +136,21 @@ public class Blog_pessoal {
 
       } else if (operacao == 2) {
 
-        System.out.println("Escolha o Método de Busca Desejado:");
-        System.out.println("1 - Pesquisar Por ID da Postagem");
-        System.out.println("2 - Buscar Por Categoria da Postagem");
-        System.out.println("3 - Filtrar Postagens Por Período(Datas de Publicação)");
-        operacao = scan.nextInt();
+        System.out.println("Digite o Titulo da Postagem");
+        titulo = scan.next();
 
-        /* switch (operacao){
-          case 1{
-            
+        indice = read_post(titulo);
+        System.out.println("-----------------------------------");
+        if (indice < 0) {
+          System.out.println("Postagem nao encontrado");
+        } else {
+          titulo = titulos.get(indice);
+          data = datas.get(indice);
+          System.out.println(titulo);
+          System.out.println(data);
         }
-      } */
-    }
-      else if (operacao == 3) {
+
+      } else if (operacao == 3) {
 
         System.out.println("Digite o ID da Postagem a Ser Atualizada:");
         id = scan.nextInt();
@@ -147,29 +164,29 @@ public class Blog_pessoal {
         System.out.println("5 - Atualizar Conteúdo da Postagem");
         operacao = scan.nextInt();
 
-          switch (operacao) {
+        switch (operacao) {
           case 1:
-          System.out.print("Digite o Novo Nome do Autor: ");
-          nome = scan.nextLine();
-          break;
+            System.out.print("Digite o Novo Nome do Autor: ");
+            nome = scan.nextLine();
+            break;
           case 2:
-          System.out.print("Digite a Nova Data de Publicação da Postagem: ");
-          data = scan.next();
-          break;
+            System.out.print("Digite a Nova Data de Publicação da Postagem: ");
+            data = scan.next();
+            break;
           case 3:
-          System.out.print("Digite a Nova Categoria da Postagem: ");
-          categoria = scan.next();
-          break;
+            System.out.print("Digite a Nova Categoria da Postagem: ");
+            categoria = scan.next();
+            break;
           case 4:
-          System.out.print("Digite o Novo Título da Postagem: ");
-          categoria = scan.nextLine();
-          break;
+            System.out.print("Digite o Novo Título da Postagem: ");
+            categoria = scan.nextLine();
+            break;
           case 5:
-          System.out.print("Atualizar Conteúdo da Postagem: ");
-          conteudo = scan.nextLine();
-          break;
+            System.out.print("Atualizar Conteúdo da Postagem: ");
+            conteudo = scan.nextLine();
+            break;
           default:
-          System.out.println("Escolha Incorreta");
+            System.out.println("Escolha Incorreta");
         }
 
         status = update_post(id, nome = "", data = "", categoria = "", titulo = "", conteudo = "");
@@ -182,7 +199,17 @@ public class Blog_pessoal {
       }
 
       else if (operacao == 4) {
+        System.out.println("Digite o ID da Postagem a Ser Deletada:");
+        id = scan.nextInt();
 
+        status = delete_post(id);
+
+        if (status == 0) {
+           System.out.println("Postagem encontrada e deletada!");
+        } else {
+           System.out.println("Postagem não encontrada!");
+        }
+        conteudo = scan.nextLine();
       }
 
       else if (operacao == 5) {
@@ -207,5 +234,5 @@ public class Blog_pessoal {
 
     scan.close();
 
-      }
-    }
+  }
+}
