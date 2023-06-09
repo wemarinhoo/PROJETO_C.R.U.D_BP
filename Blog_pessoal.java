@@ -46,6 +46,10 @@ public class Blog_pessoal {
 
     for (indice = 0; indice < titulos.size(); indice++) {
       titulo_busca = titulos.get(indice);
+
+      if(titulo_busca.equals(titulo)){
+        return indice;
+      }
     }
      return 0;
   }
