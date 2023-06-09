@@ -12,12 +12,12 @@ import java.text.ParseException;
 
 public class Blog_pessoal {
 
-  public static ArrayList<Integer> ids = new ArrayList<>();
-  public static ArrayList<String> nomes = new ArrayList<>();
-  public static ArrayList<String> datas = new ArrayList<>();
-  public static ArrayList<String> categorias = new ArrayList<>();
-  public static ArrayList<String> titulos = new ArrayList<>();
-  public static ArrayList<String> conteudos = new ArrayList<>();
+  public static ArrayList<Integer> ids = new ArrayList<Integer>();
+  public static ArrayList<String> nomes = new ArrayList<String>();
+  public static ArrayList<String> datas = new ArrayList<String>();
+  public static ArrayList<String> categorias = new ArrayList<String>();
+  public static ArrayList<String> titulos = new ArrayList<String>();
+  public static ArrayList<String> conteudos = new ArrayList<String>();
 
   public static int create_post(Integer id, String nome, String data, String categoria, String titulo,
       String conteudo) {
@@ -134,11 +134,10 @@ public class Blog_pessoal {
         System.out.println("3 - Filtrar Postagens Por Período(Datas de Publicação)");
         operacao = scan.nextInt();
 
-        /*
-         * if(operacao == 1){
-         * System.out.println("Digite o ID da Postagem");
-         * }
-         */
+        switch (operacao){
+          case 1{
+            
+        }
       }
 
       else if (operacao == 3) {
@@ -155,22 +154,28 @@ public class Blog_pessoal {
         System.out.println("5 - Atualizar Conteúdo da Postagem");
         operacao = scan.nextInt();
 
-        if (operacao == 1) {
+          switch (operacao) {
+          case 1:
           System.out.println("Digite o Novo Nome do Autor");
           nome = scan.nextLine();
-        } else if (operacao == 2) {
+          break;
+          case 2:
           System.out.println("Digite a Nova Data de Publicação da Postagem");
           data = scan.next();
-        } else if (operacao == 3) {
+          break;
+          case 3:
           System.out.println("Digite a Nova Categoria da Postagem");
           categoria = scan.next();
-        } else if (operacao == 4) {
+          break;
+          case 4:
           System.out.println("Digite o Novo Título da Postagem");
           categoria = scan.nextLine();
-        } else if (operacao == 5) {
+          break;
+          case 5:
           System.out.println("Atualizar Conteúdo da Postagem");
           conteudo = scan.nextLine();
-        } else {
+          break;
+          default:
           System.out.println("Escolha Incorreta");
         }
 
