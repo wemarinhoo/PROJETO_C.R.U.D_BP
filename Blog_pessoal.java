@@ -12,12 +12,12 @@ import java.text.ParseException;
 
 public class Blog_pessoal {
 
-  public static ArrayList<Integer> ids = new ArrayList<>();
-  public static ArrayList<String> nomes = new ArrayList<>();
-  public static ArrayList<String> datas = new ArrayList<>();
-  public static ArrayList<String> categorias = new ArrayList<>();
-  public static ArrayList<String> titulos = new ArrayList<>();
-  public static ArrayList<String> conteudos = new ArrayList<>();
+  public static ArrayList<Integer> ids = new ArrayList<Integer>();
+  public static ArrayList<String> nomes = new ArrayList<String>();
+  public static ArrayList<String> datas = new ArrayList<String>();
+  public static ArrayList<String> categorias = new ArrayList<String>();
+  public static ArrayList<String> titulos = new ArrayList<String>();
+  public static ArrayList<String> conteudos = new ArrayList<String>();
 
   public static int create_post(Integer id, String nome, String data, String categoria, String titulo,
       String conteudo) {
@@ -94,11 +94,11 @@ public class Blog_pessoal {
       if (operacao == 1) {
         System.out.println("ID: " + id++);
 
-        System.out.println("Digite o Nome do Autor da Postagem");
+        System.out.print("Digite o Nome do Autor da Postagem: ");
         nome = scan.next();
 
         // recebendo a data no tipo string
-        System.out.println("Digite a Data de Publicação da Postagem(DD/MM/AAAA)");
+        System.out.print("Digite a Data de Publicação da Postagem(DD/MM/AAAA): ");
         data = scan.next();
 
         // formatar data do tipo string para date
@@ -110,11 +110,11 @@ public class Blog_pessoal {
           e.printStackTrace();
         }
 
-        System.out.println("Digite a Categoria da Postagem(ex:Tecnologia, Saúde...)");
+        System.out.print("Digite a Categoria da Postagem(ex:Tecnologia, Saúde...): ");
         categoria = scan.nextLine();
-        System.out.println("Digite o Título da Postagem");
+        System.out.print("Digite o Título da Postagem: ");
         titulo = scan.next();
-        System.out.println("Digite o Conteúdo da Postagem");
+        System.out.print("Digite o Conteúdo da Postagem: ");
         conteudo = scan.nextLine();
         scan.nextLine();
         status = create_post(id, nome, data, categoria, titulo, conteudo);
@@ -135,11 +135,10 @@ public class Blog_pessoal {
         System.out.println("3 - Filtrar Postagens Por Período(Datas de Publicação)");
         operacao = scan.nextInt();
 
-        /*
-         * if(operacao == 1){
-         * System.out.println("Digite o ID da Postagem");
-         * }
-         */
+        switch (operacao){
+          case 1{
+            
+        }
       }
 
       else if (operacao == 3) {
@@ -156,22 +155,28 @@ public class Blog_pessoal {
         System.out.println("5 - Atualizar Conteúdo da Postagem");
         operacao = scan.nextInt();
 
-        if (operacao == 1) {
-          System.out.println("Digite o Novo Nome do Autor");
+          switch (operacao) {
+          case 1:
+          System.out.print("Digite o Novo Nome do Autor: ");
           nome = scan.nextLine();
-        } else if (operacao == 2) {
-          System.out.println("Digite a Nova Data de Publicação da Postagem");
+          break;
+          case 2:
+          System.out.print("Digite a Nova Data de Publicação da Postagem: ");
           data = scan.next();
-        } else if (operacao == 3) {
-          System.out.println("Digite a Nova Categoria da Postagem");
+          break;
+          case 3:
+          System.out.print("Digite a Nova Categoria da Postagem: ");
           categoria = scan.next();
-        } else if (operacao == 4) {
-          System.out.println("Digite o Novo Título da Postagem");
+          break;
+          case 4:
+          System.out.print("Digite o Novo Título da Postagem: ");
           categoria = scan.nextLine();
-        } else if (operacao == 5) {
-          System.out.println("Atualizar Conteúdo da Postagem");
+          break;
+          case 5:
+          System.out.print("Atualizar Conteúdo da Postagem: ");
           conteudo = scan.nextLine();
-        } else {
+          break;
+          default:
           System.out.println("Escolha Incorreta");
         }
 
@@ -210,5 +215,6 @@ public class Blog_pessoal {
 
     scan.close();
 
-  }
-}
+      }
+    }
+  } 
