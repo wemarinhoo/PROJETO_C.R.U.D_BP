@@ -97,18 +97,18 @@ public class Blog_pessoal {
         nome = scan.next();
 
         // recebendo a data no tipo string
-        System.out.print("Digite a Data de Publicação da Postagem(DD/MM/AAAA): ");
+        System.out.print("Digite a Data de Publicação da Postagem(DD/MM/AAAA): " + " ");
         data = scan.next();
 
         // formatar data do tipo string para date
         DateFormat formato_data = new SimpleDateFormat("dd/MM/yyyy");
         try {
           Date date = formato_data.parse(data);
-          System.out.println(formato_data.format(date));
+          /* System.out.println("Data: " + formato_data.format(date)); */
         } catch (ParseException e) {
           e.printStackTrace();
         }
-
+        scan.nextLine();
         System.out.print("Digite a Categoria da Postagem(ex:Tecnologia, Saúde...): ");
         categoria = scan.nextLine();
         System.out.print("Digite o Título da Postagem: ");
@@ -128,18 +128,16 @@ public class Blog_pessoal {
 
         System.out.println("Escolha o Método de Busca Desejado:");
         System.out.println("1 - Pesquisar Por ID da Postagem");
-        operacao = scan.nextInt();
         System.out.println("2 - Buscar Por Categoria da Postagem");
-        operacao = scan.nextInt();
         System.out.println("3 - Filtrar Postagens Por Período(Datas de Publicação)");
         operacao = scan.nextInt();
 
-        switch (operacao){
+        /* switch (operacao){
           case 1{
             
         }
-      }
-
+      } */
+    }
       else if (operacao == 3) {
 
         System.out.println("Digite o ID da Postagem a Ser Atualizada:");
@@ -216,4 +214,3 @@ public class Blog_pessoal {
 
       }
     }
-  } 
