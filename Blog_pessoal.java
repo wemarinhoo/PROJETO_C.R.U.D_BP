@@ -97,18 +97,8 @@ public class Blog_pessoal {
         System.out.print("Digite o Nome do Autor da Postagem: ");
         nome = scan.next();
 
-        // recebendo a data no tipo string
-        System.out.print("Digite a Data de Publicação da Postagem(DD/MM/AAAA): " + " ");
+        System.out.print("Digite a Data de Publicação da Postagem(DD/MM/AAAA): ");
         data = scan.next();
-
-        // formatar data do tipo string para date
-        DateFormat formato_data = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-          Date date = formato_data.parse(data);
-          /* System.out.println("Data: " + formato_data.format(date)); */
-        } catch (ParseException e) {
-          e.printStackTrace();
-        }
         scan.nextLine();
         System.out.print("Digite a Categoria da Postagem(ex:Tecnologia, Saúde...): ");
         categoria = scan.nextLine();
