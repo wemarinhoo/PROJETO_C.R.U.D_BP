@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Silviocrud",
+      "request": "launch",
+      "mainClass": "Silviocrud",
+      "projectName": "PROJETO_C.R.U.D_BP_a22554bb"
+    },
+    {
+      "type": "java",
+      "name": "Blog_pessoal",
+      "request": "launch",
+      "mainClass": "Blog_pessoal",
+      "projectName": "PROJETO_C.R.U.D_BP_a22554bb"
+    },
+    {
+      "type": "java",
       "name": "Current File",
       "request": "launch",
       "mainClass": "${file}"
