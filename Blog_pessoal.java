@@ -15,7 +15,6 @@ public class Blog_pessoal {
 
         int titulo_existe = titulos.indexOf(titulo);
 
-<<<<<<< HEAD
         if (titulo_existe < 0) {
             ids.add(id);
             nomes.add(nome);
@@ -23,98 +22,6 @@ public class Blog_pessoal {
             categorias.add(categoria);
             titulos.add(titulo);
             conteudos.add(conteudo);
-=======
-    if (titulo_existe >= 0) {
-      return 2;
-    }
-
-    ids.add(id);
-    nomes.add(nome);
-    datas.add(data);
-    categorias.add(categoria);
-    titulos.add(titulo);
-    conteudos.add(conteudo);
-
-    return 0;
-
-  }
-
-  public static int read_post(Integer id, String data, String categoria, String titulo) {
-
-    String titulo_busca;
-
-    for (indice = 0; indice < titulos.size(); indice++) {
-      titulo_busca = titulos.get(indice);
-
-      if(titulo_busca.equals(titulo)){
-        return indice;
-      }
-    }
-     return 0;
-  }
-
-  public static int update_post(Integer id, String nome, String data, String categoria, String titulo,
-      String conteudo) {
-
-    int indice = read_post(id);
-
-    if (indice < 0) {
-      return -1;
-    }
-
-    nomes.set(indice, nome);
-    datas.set(indice, data);
-    categorias.set(indice, categoria);
-    titulos.set(indice, titulo);
-    conteudos.set(indice, conteudo);
-
-    return 0;
-  }
-
-  public static int delete_post() {
-
-  }
-
-  public static void main(String[] args) {
-
-    String nome, categoria, titulo, conteudo, data;
-    int id = 0, operacao, operacao_update, status, indice;
-
-    Scanner scan = new Scanner(System.in);
-
-    while (true) {
-
-      System.out.println("Selecione o Número Que Representa a Operação Desejada:");
-      System.out.println("1 - Criar Postagem");
-      System.out.println("2 - Buscar Postagem");
-      System.out.println("3 - Atualizar Postagem");
-      System.out.println("4 - Deletar Postagem");
-      System.out.println("5 - Exibir Todas as Postagens Publicadas");
-      System.out.println("0 - Sair");
-      System.out.println("-----------------------------------");
-      operacao = scan.nextInt();
-
-      if (operacao == 1) {
-        System.out.println("ID: " + id++);
-
-        System.out.print("Digite o Nome do Autor da Postagem: ");
-        nome = scan.next();
-
-        System.out.print("Digite a Data de Publicação da Postagem(DD/MM/AAAA): ");
-        data = scan.next();
-        scan.nextLine();
-        System.out.print("Digite a Categoria da Postagem(ex:Tecnologia, Saúde...): ");
-        categoria = scan.nextLine();
-        System.out.print("Digite o Título da Postagem: ");
-        titulo = scan.next();
-        System.out.print("Digite o Conteúdo da Postagem: ");
-        conteudo = scan.nextLine();
-        scan.nextLine();
-        status = create_post(id, nome, data, categoria, titulo, conteudo);
-
-        if (status == 0) {
-          System.out.println("Postagem Adicionada!!");
->>>>>>> 0a0b680f8ceeb31f3f684f93a81e80fa210fb870
         } else {
             return -2;
         }
@@ -139,12 +46,8 @@ public class Blog_pessoal {
             }
         }
 
-<<<<<<< HEAD
         return 0;
     }
-=======
-            else if(operacao == 3){
->>>>>>> 0a0b680f8ceeb31f3f684f93a81e80fa210fb870
 
     public static int update_post(int id, String nome, String data, String categoria, String titulo,
     String conteudo) {
