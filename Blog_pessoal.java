@@ -31,7 +31,7 @@ public class Blog_pessoal {
   public static int read_post(int id, String categoria, String titulo) {
 
     String titulo_busca;
-    int indice;
+    int indice, id_busca;
 
     for (indice = 0; indice < titulos.size(); indice++) {
       titulo_busca = titulos.get(indice);
@@ -39,6 +39,18 @@ public class Blog_pessoal {
       if (titulo_busca.equals(titulo)) {
         return indice;
       } else if (indice == titulos.size()) {
+        return -1;
+      } else {
+        continue;
+      }
+    }
+
+    for (indice = 0; indice < ids.size(); indice++) {
+      id_busca = ids.get(indice);
+
+      if (id_busca == id) {
+        return indice;
+      } else if (indice == ids.size()) {
         return -1;
       } else {
         continue;
@@ -141,6 +153,8 @@ public class Blog_pessoal {
           System.out.println("1 - ID");
           System.out.println("2 - Titulo");
           System.out.println("3 - Categoria");
+          System.out.println("-----------------------------------");
+
           option = scan.nextInt();
 
           switch (option) {
@@ -149,13 +163,16 @@ public class Blog_pessoal {
               option2 = scan.nextInt();
 
               for (int i = 0; i < ids.size(); i++) {
+                int id3 = ids.get(i) - 1;
                 if (ids.get(i) == ids.get(option2)) {
-                  System.out.println("ID: " + ids.get(option2));
+                  System.out.println("ID: " + id3);
                   System.out.println("Nome do Autor: " + nomes.get(option2));
                   System.out.println("Data de Publicação: " + datas.get(option2));
                   System.out.println("Categoria: " + categorias.get(option2));
                   System.out.println("Título: " + titulos.get(option2));
                   System.out.println("Conteúdo: " + conteudos.get(option2));
+                  System.out.println("-----------------------------------");
+
                 }
               }
               break;
@@ -165,8 +182,9 @@ public class Blog_pessoal {
               option3 = scan.nextLine();
 
               for (int i = 0; i < ids.size(); i++) {
+                int id3 = ids.get(i) - 1;
                 if (titulos.get(i).toLowerCase().equals(option3.toLowerCase())) {
-                  System.out.println("ID: " + ids.get(i));
+                  System.out.println("ID: " + id3);
                   System.out.println("Nome do Autor: " + nomes.get(i));
                   System.out.println("Data de Publicação: " + datas.get(i));
                   System.out.println("Categoria: " + categorias.get(i));
@@ -181,8 +199,9 @@ public class Blog_pessoal {
               option3 = scan.nextLine();
 
               for (int i = 0; i < ids.size(); i++) {
+                int id3 = ids.get(i) - 1;
                 if (categorias.get(i).toLowerCase().equals(option3.toLowerCase())) {
-                  System.out.println("ID: " + ids.get(i));
+                  System.out.println("ID: " + id3);
                   System.out.println("Nome do Autor: " + nomes.get(i));
                   System.out.println("Data de Publicação: " + datas.get(i));
                   System.out.println("Categoria: " + categorias.get(i));
@@ -246,7 +265,8 @@ public class Blog_pessoal {
           System.out.println("Exibindo Todas as Postagens:");
           System.out.println("-----------------------------");
           for (indice = 0; indice < ids.size(); indice++) {
-            System.out.println("ID: " + ids.get(indice));
+            int id3 = ids.get(indice) - 1;
+            System.out.println("ID: " + id3);
             System.out.println("Nome do Autor: " + nomes.get(indice));
             System.out.println("Data de Publicação: " + datas.get(indice));
             System.out.println("Categoria: " + categorias.get(indice));
