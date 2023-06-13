@@ -165,7 +165,7 @@ public class Blog_pessoal {
                     System.out.println("Postagem Atualizada!!");
                     System.out.println("-----------------------------");
                 } else {
-                    System.out.println("Erro ao Atualizar Postagem!!");
+                    System.out.println("Erro ao Atualizar Postagem!!, Não Encontrada");
                     System.out.println("-----------------------------");
                 }
             } else if (operacao == 4) {
