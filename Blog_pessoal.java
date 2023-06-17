@@ -38,8 +38,7 @@ public class Blog_pessoal {
 
       if (titulo_busca.equals(titulo)) {
         return indice;
-      }
-        else {
+      } else {
         continue;
       }
     }
@@ -145,7 +144,6 @@ public class Blog_pessoal {
           } else {
             System.out.println("Erro ao Adicionar Postagem!! Título Já Existente");
             System.out.println("-----------------------------");
-            id--;
           }
 
           break;
@@ -165,7 +163,7 @@ public class Blog_pessoal {
 
               for (int i = 0; i < ids.size(); i++) {
                 if (ids.get(i) == ids.get(option2)) {
-                  System.out.println("ID: " + id);
+                  System.out.println("ID: " + ids.get(i));
                   System.out.println("Nome do Autor: " + nomes.get(option2));
                   System.out.println("Data de Publicação: " + datas.get(option2));
                   System.out.println("Categoria: " + categorias.get(option2));
@@ -183,7 +181,7 @@ public class Blog_pessoal {
 
               for (int i = 0; i < ids.size(); i++) {
                 if (titulos.get(i).toLowerCase().equals(option3.toLowerCase())) {
-                  System.out.println("ID: " + id);
+                  System.out.println("ID: " + ids.get(i));
                   System.out.println("Nome do Autor: " + nomes.get(i));
                   System.out.println("Data de Publicação: " + datas.get(i));
                   System.out.println("Categoria: " + categorias.get(i));
@@ -200,7 +198,7 @@ public class Blog_pessoal {
 
               for (int i = 0; i < ids.size(); i++) {
                 if (categorias.get(i).toLowerCase().equals(option3.toLowerCase())) {
-                  System.out.println("ID: " + id);
+                  System.out.println("ID: " + ids.get(i));
                   System.out.println("Nome do Autor: " + nomes.get(i));
                   System.out.println("Data de Publicação: " + datas.get(i));
                   System.out.println("Categoria: " + categorias.get(i));
