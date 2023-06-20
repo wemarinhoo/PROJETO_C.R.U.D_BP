@@ -61,7 +61,7 @@ public class Blog_pessoal {
 
     int id_busca = ids.indexOf(id);
 
-    if (id >= 1) {
+    if (id_busca >= 0) {
       nomes.set(id_busca, nome);
       datas.set(id_busca, data);
       categorias.set(id_busca, categoria);
@@ -78,7 +78,7 @@ public class Blog_pessoal {
 
     int id_busca = ids.indexOf(id);
 
-    if (id >= 1) {
+    if (id_busca >= 0) {
       ids.remove(id_busca);
       nomes.remove(id_busca);
       datas.remove(id_busca);
