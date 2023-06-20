@@ -95,7 +95,7 @@ public class Blog_pessoal {
   public static void main(String[] args) {
 
     String nome, categoria, titulo, conteudo, data, option3;
-    int id = 1, operacao, status, indice, option, option2;
+    int id,idPost = 1, operacao, status, indice, option, option2;
     boolean running = true;
 
     Scanner scan = new Scanner(System.in);
@@ -119,7 +119,7 @@ public class Blog_pessoal {
         case 1:
           System.out.println("Criando Postagem:");
           System.out.println("-----------------------------");
-          System.out.println("ID: " + id);
+          System.out.println("ID: " + idPost);
           scan.nextLine();
           System.out.print("Digite o Nome do Autor da Postagem: ");
           nome = scan.nextLine();
@@ -134,10 +134,10 @@ public class Blog_pessoal {
           System.out.print("Digite o Conteúdo da Postagem: ");
           conteudo = scan.nextLine();
           System.out.println("-----------------------------");
-          status = create_post(id, nome, data, categoria, titulo, conteudo);
+          status = create_post(idPost, nome, data, categoria, titulo, conteudo);
 
           if (status == 0) {
-            id++;
+            idPost++;
             System.out.println("Postagem Adicionada!!");
             System.out.println("-----------------------------");
 
